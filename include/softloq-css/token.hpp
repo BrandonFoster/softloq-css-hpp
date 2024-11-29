@@ -9,6 +9,7 @@
  */
 
 #include "softloq-css/error.hpp"
+#include "softloq-unicode/unicode.hpp"
 
 namespace Softloq::CSS
 {
@@ -27,7 +28,8 @@ namespace Softloq::CSS
         Dimension,
         Percentage,
         CDO,
-        CDC
+        CDC,
+        Delim
     };
 
     /** @brief Abstract class of a CSS Token object. */
@@ -49,7 +51,7 @@ namespace Softloq::CSS
     {
     public:
         inline const TokenType getTokenType() const override { return TokenType::Comment; }
-        inline const std::string toString() const override { return std::string("/*") + text + "*/"; }
+        inline const std::string toString() const override { return std::string("/* ") + text + " */"; }
 
         SOFTLOQ_CSS_API CommentToken();
         SOFTLOQ_CSS_API CommentToken(const std::string &text);
@@ -74,7 +76,6 @@ namespace Softloq::CSS
         inline const TokenType getTokenType() const override { return TokenType::Ident; }
         inline const std::string toString() const override { return identifier; }
 
-        SOFTLOQ_CSS_API IdentToken();
         SOFTLOQ_CSS_API IdentToken(const std::string &identifier);
 
         inline void setIdentifier(const std::string &identifier) { this->identifier = identifier; }
@@ -90,7 +91,6 @@ namespace Softloq::CSS
         inline const TokenType getTokenType() const override { return TokenType::Function; }
         inline const std::string toString() const override { return identifier + '(' + parameter_list + ')'; }
 
-        SOFTLOQ_CSS_API FunctionToken();
         SOFTLOQ_CSS_API FunctionToken(const std::string &identifier, const std::string &parameter_list);
 
         inline void setIdentifier(const std::string &identifier) { this->identifier = identifier; }
@@ -109,7 +109,6 @@ namespace Softloq::CSS
         inline const TokenType getTokenType() const override { return TokenType::AtKeyword; }
         inline const std::string toString() const override { return std::string("@") + identifier; }
 
-        SOFTLOQ_CSS_API AtKeywordToken();
         SOFTLOQ_CSS_API AtKeywordToken(const std::string &identifier);
 
         inline void setIdentifier(const std::string &identifier) { this->identifier = identifier; }
@@ -122,17 +121,30 @@ namespace Softloq::CSS
     class HashToken : public Token
     {
     public:
-        inline const TokenType getTokenType() const override { return TokenType::Hash; }
+        enum class Type
+        {
+            ID,
+            Unrestricted
+        };
+
+        inline const TokenType getTokenType() const override
+        {
+            return TokenType::Hash;
+        }
         inline const std::string toString() const override { return std::string("#") + hash; }
 
-        SOFTLOQ_CSS_API HashToken();
         SOFTLOQ_CSS_API HashToken(const std::string &hash);
+        SOFTLOQ_CSS_API HashToken(const std::string &hash, const Type type);
 
         inline void setHash(const std::string &hash) { this->hash = hash; }
         inline const std::string &getHash() const { return hash; }
 
+        inline void setType(const Type type) { this->type = type; }
+        inline const Type getType() const { return type; }
+
     private:
         std::string hash;
+        Type type;
     };
 
     class StringToken : public Token
@@ -157,7 +169,6 @@ namespace Softloq::CSS
         inline const TokenType getTokenType() const override { return TokenType::URL; }
         inline const std::string toString() const override { return std::string("url(") + link + ')'; }
 
-        SOFTLOQ_CSS_API URLToken();
         SOFTLOQ_CSS_API URLToken(const std::string &link);
 
         inline void setLink(const std::string &link) { this->link = link; }
@@ -167,39 +178,70 @@ namespace Softloq::CSS
         std::string link;
     };
 
-    class NumberToken : public Token
+    class NumericFlagToken : public Token
+    {
+    private:
+        union NumberValue
+        {
+            int integer;
+            float number;
+        };
+
+    public:
+        enum class Type
+        {
+            Integer,
+            Number
+        };
+
+        SOFTLOQ_CSS_API explicit NumericFlagToken(const int integer);
+        SOFTLOQ_CSS_API NumericFlagToken(const float number);
+        SOFTLOQ_CSS_API virtual ~NumericFlagToken() = 0;
+
+        inline void setNumber(const float number)
+        {
+            this->value.number = number;
+            flag = Type::Number;
+        }
+        inline const float getNumber() const { return value.number; }
+
+        inline void setInteger(const int integer)
+        {
+            this->value.integer = integer;
+            flag = Type::Integer;
+        }
+        inline const int getInteger() const { return value.integer; }
+
+        inline const Type getFlagType() const { return flag; }
+
+    private:
+        NumberValue value;
+        Type flag;
+    };
+
+    class NumberToken : public NumericFlagToken
     {
     public:
         inline const TokenType getTokenType() const override { return TokenType::Number; }
-        inline const std::string toString() const override { return std::to_string(number); }
+        inline const std::string toString() const override { return getFlagType() == Type::Number ? std::to_string(getNumber()) : std::to_string(getInteger()); }
 
-        SOFTLOQ_CSS_API NumberToken();
+        SOFTLOQ_CSS_API explicit NumberToken(const int integer);
         SOFTLOQ_CSS_API NumberToken(const float number);
-
-        inline void setNumber(const float number) { this->number = number; }
-        inline const float getNumber() const { return number; }
-
-    private:
-        float number;
     };
 
-    class DimensionToken : public Token
+    class DimensionToken : public NumericFlagToken
     {
     public:
         inline const TokenType getTokenType() const override { return TokenType::Dimension; }
-        inline const std::string toString() const override { return std::to_string(number) + identifier; }
+        inline const std::string toString() const override { return (getFlagType() == Type::Number ? std::to_string(getNumber()) : std::to_string(getInteger())) + identifier; }
 
-        SOFTLOQ_CSS_API DimensionToken();
+        SOFTLOQ_CSS_API explicit DimensionToken(const int integer, const std::string &identifier);
         SOFTLOQ_CSS_API DimensionToken(const float number, const std::string &identifier);
-
-        inline void setNumber(const float number) { this->number = number; }
-        inline const float getNumber() const { return number; }
 
         inline void setIdentifier(const std::string &identifier) { this->identifier = identifier; }
         inline const std::string &getIdentifier() const { return identifier; }
 
     private:
-        float number;
         std::string identifier;
     };
 
@@ -209,7 +251,6 @@ namespace Softloq::CSS
         inline const TokenType getTokenType() const override { return TokenType::Percentage; }
         inline const std::string toString() const override { return std::to_string(number) + '%'; }
 
-        SOFTLOQ_CSS_API PercentageToken();
         SOFTLOQ_CSS_API PercentageToken(const float number);
 
         inline void setNumber(const float number) { this->number = number; }
@@ -231,6 +272,26 @@ namespace Softloq::CSS
     public:
         inline const TokenType getTokenType() const override { return TokenType::CDC; }
         inline const std::string toString() const override { return "-->"; }
+    };
+
+    class DelimToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::Delim; }
+        inline const std::string toString() const override
+        {
+            std::string utf8;
+            Unicode::convertCodepointToUTF8(codepoint, utf8);
+            return utf8;
+        }
+
+        SOFTLOQ_CSS_API DelimToken(const char32_t codepoint);
+
+        inline void setCodepoint(const char32_t codepoint) { this->codepoint = codepoint; }
+        inline const char32_t getCodepoint() const { return codepoint; }
+
+    private:
+        char32_t codepoint;
     };
 }
 

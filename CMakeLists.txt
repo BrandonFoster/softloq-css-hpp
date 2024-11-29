@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(softloq-css-project VERSION 1.0.0 LANGUAGES CXX)
 option(SOFTLOQ_CSS_BUILD_SHARED "Generate Shared Library" OFF)
 option(SOFTLOQ_CSS_MONOLITHIC_BUILD "Builds everything in one Shared/Static Library" OFF)
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
 # Load Global Settings
 # Require C++
