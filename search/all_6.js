@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['gettokentype_0',['getTokenType',['../d2/d2d/classSoftloq_1_1CSS_1_1Token.html#a497b5499b2571c8055397c689317a422',1,'Softloq::CSS::Token::getTokenType()'],['../db/d26/classSoftloq_1_1CSS_1_1CommentToken.html#a42e4ca1852f5bb8cd0b4c2f9e8466829',1,'Softloq::CSS::CommentToken::getTokenType()'],['../d1/d48/classSoftloq_1_1CSS_1_1WhitespaceToken.html#a757b3c4c38569c8a17d0120453cb8ae4',1,'Softloq::CSS::WhitespaceToken::getTokenType()'],['../d0/d98/classSoftloq_1_1CSS_1_1IdentToken.html#a2b0dde216786f4f4b1d007bdcac58d7f',1,'Softloq::CSS::IdentToken::getTokenType()']]]
+  ['error_0',['Error',['../df/dba/structSoftloq_1_1CSS_1_1Error.html',1,'Softloq::CSS::Error'],['../d9/dce/structSoftloq_1_1Unicode_1_1Error.html',1,'Softloq::Unicode::Error']]],
+  ['error_2ehpp_1',['error.hpp',['../dd/d3e/include_2softloq-css_2error_8hpp.html',1,'(Global Namespace)'],['../d0/dae/softloq-unicode-hpp_2include_2softloq-unicode_2error_8hpp.html',1,'(Global Namespace)']]],
+  ['example_2',['Usage Example',['../index.html#autotoc_md2',1,'']]]
 ];

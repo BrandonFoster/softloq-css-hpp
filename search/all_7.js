@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['identtoken_0',['IdentToken',['../d0/d98/classSoftloq_1_1CSS_1_1IdentToken.html',1,'Softloq::CSS']]]
+  ['functiontoken_0',['FunctionToken',['../dd/d25/classSoftloq_1_1CSS_1_1FunctionToken.html',1,'Softloq::CSS']]]
 ];
