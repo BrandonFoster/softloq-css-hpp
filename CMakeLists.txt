@@ -1,0 +1,66 @@
+cmake_minimum_required(VERSION 3.10)
+project(softloq-css-project VERSION 1.0.0 LANGUAGES CXX)
+option(SOFTLOQ_CSS_BUILD_SHARED "Generate Shared Library" OFF)
+option(SOFTLOQ_CSS_MONOLITHIC_BUILD "Builds everything in one Shared/Static Library" OFF)
+
+# Load Global Settings
+# Require C++
+set(SOFTLOQ_CSS_CMAKE_CXX_EXTENSIONS_TMP ${CMAKE_CXX_EXTENSIONS})
+set(CMAKE_CXX_EXTENSIONS OFF)
+if(NOT CMAKE_CXX_STANDARD_REQUIRED)
+    set(SOFTLOQ_CSS_UNSET_CMAKE_CXX_STANDARD_REQUIRED)
+    set(CMAKE_CXX_STANDARD_REQUIRED)
+endif()
+
+# Library settings
+if(SOFTLOQ_CSS_BUILD_SHARED)
+    set(SOFTLOQ_CSS_LIBRARY_TYPE SHARED)
+    unset(SOFTLOQ_CSS_PUBLIC_DEFINITIONS)
+    list(APPEND SOFTLOQ_CSS_PUBLIC_DEFINITIONS SOFTLOQ_CSS_USE_API)
+    unset(SOFTLOQ_CSS_PRIVATE_DEFINITIONS)
+    list(APPEND SOFTLOQ_CSS_PRIVATE_DEFINITIONS SOFTLOQ_CSS_BUILD_API)
+else()
+    set(SOFTLOQ_CSS_LIBRARY_TYPE STATIC)
+endif()
+
+if(SOFTLOQ_CSS_MONOLITHIC_BUILD)
+    # Builds everything in one shared/static library
+    file(GLOB_RECURSE SOFTLOQ_CSS_MONOLITHIC_CXX_FILES softloq-unicode-hpp/src/**.cpp)
+    set(SOFTLOQ_CSS_MONOLITHIC_PUBLIC_INCLUDES softloq-unicode-hpp/include)
+    if(SOFTLOQ_CSS_BUILD_SHARED)
+        list(APPEND SOFTLOQ_CSS_PUBLIC_DEFINITIONS SOFTLOQ_UNICODE_USE_API)
+        list(APPEND SOFTLOQ_CSS_PRIVATE_DEFINITIONS SOFTLOQ_UNICODE_BUILD_API)
+    endif()
+else()
+    # Build dependencies as separate shared/static libraries
+    set(SOFTLOQ_UNICODE_BUILD_SHARED ${SOFTLOQ_CSS_BUILD_SHARED})
+    unset(SOFTLOQ_CSS_DEPENDENCIES)
+    list(APPEND SOFTLOQ_CSS_DEPENDENCIES softloq-unicode)
+    unset(SOFTLOQ_CSS_LINK_LIBRARIES)
+    list(APPEND SOFTLOQ_CSS_LINK_LIBRARIES softloq-unicode)
+    if(NOT TARGET softloq-unicode)
+        add_subdirectory(softloq-unicode-hpp)
+    endif()
+endif()
+
+# Library build (All settings merged)
+if(NOT TARGET softloq-css)
+    file(GLOB_RECURSE SOFTLOQ_CSS_CXX_FILES src/**.cpp)
+    add_library(softloq-css ${SOFTLOQ_CSS_LIBRARY_TYPE} ${SOFTLOQ_CSS_CXX_FILES} ${SOFTLOQ_CSS_MONOLITHIC_CXX_FILES})
+    target_include_directories(softloq-css PUBLIC include ${SOFTLOQ_CSS_MONOLITHIC_PUBLIC_INCLUDES})
+    target_include_directories(softloq-css PRIVATE ${SOFTLOQ_CSS_MONOLITHIC_PRIVATE_INCLUDES})
+    target_compile_definitions(softloq-css PUBLIC ${SOFTLOQ_CSS_PUBLIC_DEFINITIONS})
+    target_compile_definitions(softloq-css PRIVATE ${SOFTLOQ_CSS_PRIVATE_DEFINITIONS})
+    target_link_libraries(softloq-css ${SOFTLOQ_CSS_LINK_LIBRARIES})
+    if(NOT CMAKE_CXX_STANDARD) # Default C++ Standard
+        set_target_properties(softloq-css PROPERTIES CXX_STANDARD 23)
+    endif()
+endif()
+
+# Unload Global Settings
+set(CMAKE_CXX_EXTENSIONS ${SOFTLOQ_CSS_CMAKE_CXX_EXTENSIONS_TMP})
+unset(SOFTLOQ_CSS_CMAKE_CXX_EXTENSIONS_TMP)
+if(SOFTLOQ_CSS_UNSET_CMAKE_CXX_STANDARD_REQUIRED)
+    unset(CMAKE_CXX_STANDARD_REQUIRED)
+    unset(SOFTLOQ_CSS_UNSET_CMAKE_CXX_STANDARD_REQUIRED)
+endif()
