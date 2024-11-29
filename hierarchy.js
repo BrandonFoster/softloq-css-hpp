@@ -7,11 +7,14 @@ var hierarchy =
       [ "Softloq::CSS::CDCToken", "d0/d8b/classSoftloq_1_1CSS_1_1CDCToken.html", null ],
       [ "Softloq::CSS::CDOToken", "d0/dd7/classSoftloq_1_1CSS_1_1CDOToken.html", null ],
       [ "Softloq::CSS::CommentToken", "db/d26/classSoftloq_1_1CSS_1_1CommentToken.html", null ],
-      [ "Softloq::CSS::DimensionToken", "db/d19/classSoftloq_1_1CSS_1_1DimensionToken.html", null ],
+      [ "Softloq::CSS::DelimToken", "df/d56/classSoftloq_1_1CSS_1_1DelimToken.html", null ],
       [ "Softloq::CSS::FunctionToken", "dd/d25/classSoftloq_1_1CSS_1_1FunctionToken.html", null ],
       [ "Softloq::CSS::HashToken", "d4/d31/classSoftloq_1_1CSS_1_1HashToken.html", null ],
       [ "Softloq::CSS::IdentToken", "d0/d98/classSoftloq_1_1CSS_1_1IdentToken.html", null ],
-      [ "Softloq::CSS::NumberToken", "d0/df3/classSoftloq_1_1CSS_1_1NumberToken.html", null ],
+      [ "Softloq::CSS::NumericFlagToken", "d8/dd8/classSoftloq_1_1CSS_1_1NumericFlagToken.html", [
+        [ "Softloq::CSS::DimensionToken", "db/d19/classSoftloq_1_1CSS_1_1DimensionToken.html", null ],
+        [ "Softloq::CSS::NumberToken", "d0/df3/classSoftloq_1_1CSS_1_1NumberToken.html", null ]
+      ] ],
       [ "Softloq::CSS::PercentageToken", "d4/d6e/classSoftloq_1_1CSS_1_1PercentageToken.html", null ],
       [ "Softloq::CSS::StringToken", "dd/d58/classSoftloq_1_1CSS_1_1StringToken.html", null ],
       [ "Softloq::CSS::URLToken", "d9/db6/classSoftloq_1_1CSS_1_1URLToken.html", null ],

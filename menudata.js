@@ -34,7 +34,10 @@ var menudata={children:[
 {text:"g",url:"functions.html#index_g"},
 {text:"m",url:"functions.html#index_m"},
 {text:"t",url:"functions.html#index_t"}]},
-{text:"Functions",url:"functions_func.html"},
+{text:"Functions",url:"functions_func.html",children:[
+{text:"a",url:"functions_func.html#index_a"},
+{text:"g",url:"functions_func.html#index_g"},
+{text:"t",url:"functions_func.html#index_t"}]},
 {text:"Variables",url:"functions_vars.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},

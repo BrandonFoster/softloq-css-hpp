@@ -9,11 +9,13 @@ var token_8hpp =
     [ "Softloq::CSS::HashToken", "d4/d31/classSoftloq_1_1CSS_1_1HashToken.html", "d4/d31/classSoftloq_1_1CSS_1_1HashToken" ],
     [ "Softloq::CSS::StringToken", "dd/d58/classSoftloq_1_1CSS_1_1StringToken.html", "dd/d58/classSoftloq_1_1CSS_1_1StringToken" ],
     [ "Softloq::CSS::URLToken", "d9/db6/classSoftloq_1_1CSS_1_1URLToken.html", "d9/db6/classSoftloq_1_1CSS_1_1URLToken" ],
+    [ "Softloq::CSS::NumericFlagToken", "d8/dd8/classSoftloq_1_1CSS_1_1NumericFlagToken.html", null ],
     [ "Softloq::CSS::NumberToken", "d0/df3/classSoftloq_1_1CSS_1_1NumberToken.html", "d0/df3/classSoftloq_1_1CSS_1_1NumberToken" ],
     [ "Softloq::CSS::DimensionToken", "db/d19/classSoftloq_1_1CSS_1_1DimensionToken.html", "db/d19/classSoftloq_1_1CSS_1_1DimensionToken" ],
     [ "Softloq::CSS::PercentageToken", "d4/d6e/classSoftloq_1_1CSS_1_1PercentageToken.html", "d4/d6e/classSoftloq_1_1CSS_1_1PercentageToken" ],
     [ "Softloq::CSS::CDOToken", "d0/dd7/classSoftloq_1_1CSS_1_1CDOToken.html", "d0/dd7/classSoftloq_1_1CSS_1_1CDOToken" ],
     [ "Softloq::CSS::CDCToken", "d0/d8b/classSoftloq_1_1CSS_1_1CDCToken.html", "d0/d8b/classSoftloq_1_1CSS_1_1CDCToken" ],
+    [ "Softloq::CSS::DelimToken", "df/d56/classSoftloq_1_1CSS_1_1DelimToken.html", "df/d56/classSoftloq_1_1CSS_1_1DelimToken" ],
     [ "TokenType", "d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1", [
       [ "Comment", "d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1a0be8406951cdfda82f00f79328cf4efc", null ],
       [ "Whitespace", "d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1ace9a733c2ae3f8b704aec91f551b2bcc", null ],
@@ -27,6 +29,7 @@ var token_8hpp =
       [ "Dimension", "d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1a9e0e31246b7b078403969b265870b3f4", null ],
       [ "Percentage", "d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1a37be07209f53a5d636d5c904ca9ae64c", null ],
       [ "CDO", "d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1aec41b42197a2364c65d81207995c1df6", null ],
-      [ "CDC", "d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1ab451ae487bde3a3338f110920744afa8", null ]
+      [ "CDC", "d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1ab451ae487bde3a3338f110920744afa8", null ],
+      [ "Delim", "d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1a346de047cc5ad3e7e412544307d8981f", null ]
     ] ]
 ];
