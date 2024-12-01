@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Unit-Testing](https://github.com/BrandonFoster/softloq-css-hpp/actions/workflows/testing.yml/badge.svg)](https://github.com/BrandonFoster/softloq-css-hpp/actions/workflows/testing.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ### Softloq CSS Version 1.0.0
 # About
 [Documentation](https://brandonfoster.github.io/softloq-css-hpp/)
