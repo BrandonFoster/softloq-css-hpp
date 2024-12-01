@@ -24,11 +24,22 @@ namespace Softloq::CSS
         Hash,
         String,
         URL,
+        BadURL,
         Number,
         Dimension,
         Percentage,
+        LeftParenthesis,
+        RightParenthesis,
+        Comma,
         CDO,
         CDC,
+        Semicolon,
+        Colon,
+        LeftSquareBracket,
+        RightSquareBracket,
+        LeftCurlyBracket,
+        RightCurlyBracket,
+        EndOfFile,
         Delim
     };
 
@@ -178,6 +189,21 @@ namespace Softloq::CSS
         std::string link;
     };
 
+    class BadURLToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::BadURL; }
+        inline const std::string toString() const override { return std::string("url(") + bad_link + ')'; }
+
+        SOFTLOQ_CSS_API BadURLToken(const std::string &bad_link);
+
+        inline void setLink(const std::string &bad_link) { this->bad_link = bad_link; }
+        inline const std::string &getLink() const { return bad_link; }
+
+    private:
+        std::string bad_link;
+    };
+
     class NumericFlagToken : public Token
     {
     private:
@@ -260,6 +286,27 @@ namespace Softloq::CSS
         float number;
     };
 
+    class LParenToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::LeftParenthesis; }
+        inline const std::string toString() const override { return "("; }
+    };
+
+    class RParenToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::RightParenthesis; }
+        inline const std::string toString() const override { return ")"; }
+    };
+
+    class CommaToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::Comma; }
+        inline const std::string toString() const override { return ","; }
+    };
+
     class CDOToken : public Token
     {
     public:
@@ -272,6 +319,55 @@ namespace Softloq::CSS
     public:
         inline const TokenType getTokenType() const override { return TokenType::CDC; }
         inline const std::string toString() const override { return "-->"; }
+    };
+
+    class SemicolonToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::Semicolon; }
+        inline const std::string toString() const override { return ";"; }
+    };
+
+    class ColonToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::Colon; }
+        inline const std::string toString() const override { return ":"; }
+    };
+
+    class LSquareToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::LeftSquareBracket; }
+        inline const std::string toString() const override { return "["; }
+    };
+
+    class RSquareToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::RightSquareBracket; }
+        inline const std::string toString() const override { return "]"; }
+    };
+
+    class LCurlyToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::LeftCurlyBracket; }
+        inline const std::string toString() const override { return "{"; }
+    };
+
+    class RCurlyToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::RightCurlyBracket; }
+        inline const std::string toString() const override { return "}"; }
+    };
+
+    class EOFToken : public Token
+    {
+    public:
+        inline const TokenType getTokenType() const override { return TokenType::EndOfFile; }
+        inline const std::string toString() const override { return ""; }
     };
 
     class DelimToken : public Token
