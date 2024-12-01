@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['error_0',['Error',['../df/dba/structSoftloq_1_1CSS_1_1Error.html',1,'Softloq::CSS::Error'],['../d9/dce/structSoftloq_1_1Unicode_1_1Error.html',1,'Softloq::Unicode::Error']]]
+  ['delimtoken_0',['DelimToken',['../df/d56/classSoftloq_1_1CSS_1_1DelimToken.html',1,'Softloq::CSS']]],
+  ['dimensiontoken_1',['DimensionToken',['../db/d19/classSoftloq_1_1CSS_1_1DimensionToken.html',1,'Softloq::CSS']]]
 ];
