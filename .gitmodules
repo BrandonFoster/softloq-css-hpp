@@ -1,3 +1,6 @@
 [submodule "softloq-unicode-hpp"]
 	path = softloq-unicode-hpp
 	url = https://github.com/BrandonFoster/softloq-unicode-hpp
+[submodule "Catch2"]
+	path = Catch2
+	url = https://github.com/catchorg/Catch2
