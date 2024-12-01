@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['tests_0',['Running Tests',['../index.html#autotoc_md4',1,'']]],
-  ['token_1',['Token',['../d2/d2d/classSoftloq_1_1CSS_1_1Token.html',1,'Softloq::CSS']]],
-  ['token_2ehpp_2',['token.hpp',['../d4/d44/token_8hpp.html',1,'']]],
-  ['tokentype_3',['TokenType',['../d4/d44/token_8hpp.html#ab69d8ae1c43c2d19bd27b8d4fe843da1',1,'Softloq::CSS']]],
-  ['tostring_4',['toString',['../d2/d2d/classSoftloq_1_1CSS_1_1Token.html#a581be8748cb1e338ec589b9cbcd7fb2b',1,'Softloq::CSS::Token::toString()'],['../db/d26/classSoftloq_1_1CSS_1_1CommentToken.html#adc9fc0bb2896ea596e5b224495797f34',1,'Softloq::CSS::CommentToken::toString()'],['../d1/d48/classSoftloq_1_1CSS_1_1WhitespaceToken.html#a5b2bb3f43ea298b2bd1df5b1dc25c28f',1,'Softloq::CSS::WhitespaceToken::toString()'],['../d0/d98/classSoftloq_1_1CSS_1_1IdentToken.html#a97a4a64e3ef7512d8e5bdbd607fd992b',1,'Softloq::CSS::IdentToken::toString()'],['../dd/d25/classSoftloq_1_1CSS_1_1FunctionToken.html#a122152a3bb11a38e02ef4890a75925ae',1,'Softloq::CSS::FunctionToken::toString()'],['../d5/d68/classSoftloq_1_1CSS_1_1AtKeywordToken.html#aa5b0b9afcee21cb41e3009cfdcb8b403',1,'Softloq::CSS::AtKeywordToken::toString()'],['../d4/d31/classSoftloq_1_1CSS_1_1HashToken.html#a54436e05e04ab19dc892d36b31ee4434',1,'Softloq::CSS::HashToken::toString()'],['../dd/d58/classSoftloq_1_1CSS_1_1StringToken.html#a83cd6b09b374fcf7a7f95f19a06ab64a',1,'Softloq::CSS::StringToken::toString()'],['../d9/db6/classSoftloq_1_1CSS_1_1URLToken.html#a1ece7aeb6b195bd8dafdb4e8d9daa82f',1,'Softloq::CSS::URLToken::toString()'],['../d0/df3/classSoftloq_1_1CSS_1_1NumberToken.html#a2712e37f9deb83461031f249214c43cb',1,'Softloq::CSS::NumberToken::toString()'],['../db/d19/classSoftloq_1_1CSS_1_1DimensionToken.html#ad683bb13dcce720cdabde982b6a785e0',1,'Softloq::CSS::DimensionToken::toString()'],['../d4/d6e/classSoftloq_1_1CSS_1_1PercentageToken.html#a91d8b1a0264ba00769b4bce6043eee41',1,'Softloq::CSS::PercentageToken::toString()'],['../d0/dd7/classSoftloq_1_1CSS_1_1CDOToken.html#ade225f85830921ffab56dd21ca7cd259',1,'Softloq::CSS::CDOToken::toString()'],['../d0/d8b/classSoftloq_1_1CSS_1_1CDCToken.html#aa5759633fd36f1db4a1dd126f7fc774f',1,'Softloq::CSS::CDCToken::toString()'],['../df/d56/classSoftloq_1_1CSS_1_1DelimToken.html#ade78bf741c5d558102aff2a73ba1cddd',1,'Softloq::CSS::DelimToken::toString()']]]
+  ['softloq_20css_0',['Softloq CSS',['../index.html',1,'']]],
+  ['softloq_20css_20macros_20test_1',['softloq-css-macros-test',['../index.html#autotoc_md7',1,'']]],
+  ['softloq_20css_20parser_20test_2',['softloq-css-parser-test',['../index.html#autotoc_md10',1,'']]],
+  ['softloq_20css_20token_20test_3',['softloq-css-token-test',['../index.html#autotoc_md8',1,'']]],
+  ['softloq_20css_20tokenizer_20test_4',['softloq-css-tokenizer-test',['../index.html#autotoc_md9',1,'']]],
+  ['softloq_20css_20version_201_200_200_5',['Softloq CSS Version 1.0.0',['../index.html#autotoc_md0',1,'']]],
+  ['softloq_5fcss_5fapi_6',['SOFTLOQ_CSS_API',['../d8/d9c/include_2softloq-css_2macros_8hpp.html#a8dca31e1f8619ba94ea9068944ff7f1d',1,'macros.hpp']]],
+  ['softloq_5funicode_5fapi_7',['SOFTLOQ_UNICODE_API',['../d9/d4d/softloq-unicode-hpp_2include_2softloq-unicode_2macros_8hpp.html#a509aac42bb1eef125c304f724341ceb6',1,'macros.hpp']]],
+  ['softloq_5funicode_5flimit_8',['SOFTLOQ_UNICODE_LIMIT',['../d9/d4d/softloq-unicode-hpp_2include_2softloq-unicode_2macros_8hpp.html#ad19d3cd88cbfd746d62d700b66d48b82',1,'macros.hpp']]],
+  ['stringtoken_9',['StringToken',['../dd/d58/classSoftloq_1_1CSS_1_1StringToken.html',1,'Softloq::CSS']]]
 ];

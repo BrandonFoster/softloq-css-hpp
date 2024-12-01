@@ -27,8 +27,18 @@ var NAVTREE =
   [ "Softloq CSS", "index.html", [
     [ "About", "index.html#autotoc_md1", null ],
     [ "Usage Example", "index.html#autotoc_md2", null ],
-    [ "CMake Build", "index.html#autotoc_md3", null ],
-    [ "Running Tests", "index.html#autotoc_md4", null ],
+    [ "CMake Build", "index.html#autotoc_md3", [
+      [ "Options", "index.html#autotoc_md4", null ]
+    ] ],
+    [ "Running Tests", "index.html#autotoc_md5", [
+      [ "Targets", "index.html#autotoc_md6", [
+        [ "softloq-css-macros-test", "index.html#autotoc_md7", null ],
+        [ "softloq-css-token-test", "index.html#autotoc_md8", null ],
+        [ "softloq-css-tokenizer-test", "index.html#autotoc_md9", null ],
+        [ "softloq-css-parser-test", "index.html#autotoc_md10", null ]
+      ] ],
+      [ "Building", "index.html#autotoc_md11", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

@@ -104,16 +104,66 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 Softloq CSS Version 1.0.0</h3>
 <h1><a class="anchor" id="autotoc_md1"></a>
 About</h1>
-<p>Converts CSS (Cascading Style Sheets) from a string to a modifiable C++ object and vice-versa.</p>
+<p><a href="https://brandonfoster.github.io/softloq-css-hpp/">Documentation</a></p>
+<p>Softloq Software C++ headers for CSS (Cascading Style Sheets).</p>
+<p>Features:</p><ul>
+<li>Converts CSS from a string to a modifiable C++ object and vice-versa.</li>
+<li>CSS Tokenizer.</li>
+<li>CSS Parser.</li>
+</ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Usage Example</h1>
 <p>W.i.P.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 CMake Build</h1>
-<p>W.i.P.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Options</h2>
+<ul>
+<li><p class="startli">BUILD_SHARED_LIBS [ON/OFF]:</p>
+<p class="startli">Controls building source as shared or static library files.</p>
+<p class="startli">Default: OFF.</p>
+</li>
+<li><p class="startli">SOFTLOQ_CSS_BUILD_TESTING [ON/OFF]:</p>
+<p class="startli">Controls building unit-testing.</p>
+<p class="startli">Default: OFF.</p>
+</li>
+<li><p class="startli">SOFTLOQ_CSS_MONOLITHIC_BUILD [ON/OFF]:</p>
+<p class="startli">Controls building everything in one unit.</p>
+<p class="startli">Default: OFF.</p>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Running Tests</h1>
-<p>W.i.P. </p>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Targets</h2>
+<h3><a class="anchor" id="autotoc_md7"></a>
+softloq-css-macros-test</h3>
+<p>Runs unit-tests on <a class="el" href="d8/d9c/include_2softloq-css_2macros_8hpp.html" title="CSS Macros.">softloq-css/macros.hpp</a> header file.</p>
+<p>Source Files:</p><ul>
+<li>tests/css_macros_test.cpp</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md8"></a>
+softloq-css-token-test</h3>
+<p>Runs unit-tests on <a class="el" href="d4/d44/token_8hpp.html" title="CSS Tokens are based on https://www.w3.org/TR/css-syntax-3/.">softloq-css/token.hpp</a> header file.</p>
+<p>Source Files:</p><ul>
+<li>tests/css_token_test.cpp</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md9"></a>
+softloq-css-tokenizer-test</h3>
+<p>Runs unit-tests on <a class="el" href="d1/db4/tokenizer_8hpp_source.html">softloq-css/tokenizer.hpp</a> header file.</p>
+<p>Source Files:</p><ul>
+<li>tests/css_tokenizer_test.cpp</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md10"></a>
+softloq-css-parser-test</h3>
+<p>Runs unit-tests on <a class="el" href="d1/d46/parser_8hpp_source.html">softloq-css/parser.hpp</a> header file.</p>
+<p>Source Files:</p><ul>
+<li>tests/css_parser_test.cpp</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md11"></a>
+Building</h2>
+<p>Set the CMake option SOFTLOQ_CSS_BUILD_TESTING to ON.</p>
+<p>The targets will be built to their respective output folder. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
