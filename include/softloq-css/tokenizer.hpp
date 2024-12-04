@@ -52,6 +52,11 @@ namespace Softloq::CSS
          * @brief Follows the W3C algorithm: https://www.w3.org/TR/css-syntax-3/#consume-comments
          */
         SOFTLOQ_CSS_API CommentToken *consumeCommentToken();
+
+        /**
+         * @brief Follows the W3C algorithm: https://www.w3.org/TR/css-syntax-3/#whitespace
+         */
+        SOFTLOQ_CSS_API WhitespaceToken *consumeWhitespaceToken();
     };
 }
 

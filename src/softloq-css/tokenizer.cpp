@@ -216,4 +216,8 @@ namespace Softloq::CSS
         codepoints_index += 2;
         return new CommentToken(comment_text);
     }
+
+    SOFTLOQ_CSS_API WhitespaceToken *Tokenizer::consumeWhitespaceToken()
+    {
+    }
 }
