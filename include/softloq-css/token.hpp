@@ -9,7 +9,7 @@
  */
 
 #include "softloq-css/error.hpp"
-#include "softloq-unicode/unicode.hpp"
+#include <softloq-unicode/unicode.hpp>
 
 namespace Softloq::CSS
 {

@@ -2,6 +2,7 @@
 #define SOFTLOQ_CSS_TOKENIZER_HPP
 
 #include "softloq-css/token.hpp"
+#include <softloq-unicode/unicode.hpp>
 
 #include <list>
 #include <memory>
@@ -43,7 +44,14 @@ namespace Softloq::CSS
         SOFTLOQ_CSS_API DelimToken *consumeDelimToken(const std::string &css_text);
 
     private:
+        Unicode::UTF8CodepointVector codepoints;
+        size_t codepoints_index;
         Error err;
+
+        /**
+         * @brief Follows the W3C algorithm: https://www.w3.org/TR/css-syntax-3/#consume-comments
+         */
+        SOFTLOQ_CSS_API CommentToken *consumeCommentToken();
     };
 }
 
