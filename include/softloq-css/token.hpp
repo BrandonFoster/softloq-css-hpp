@@ -79,6 +79,12 @@ namespace Softloq::CSS
     public:
         inline const TokenType getTokenType() const override { return TokenType::Whitespace; }
         inline const std::string toString() const override { return " "; }
+
+        inline void setText(const std::string &text) { this->text = text; }
+        inline const std::string &getText() const { return text; }
+
+    private:
+        std::string text;
     };
 
     class IdentToken : public Token

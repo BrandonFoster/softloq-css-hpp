@@ -9,6 +9,8 @@ namespace Softloq::CSS
         Token *token;
         while (token == consumeCommentToken())
             tokens.push_back(std::unique_ptr<Token>(token));
+        if (token = consumeWhitespaceToken())
+            tokens.push_back(std::unique_ptr<Token>(token));
 
         return false;
     }
@@ -219,5 +221,26 @@ namespace Softloq::CSS
 
     SOFTLOQ_CSS_API WhitespaceToken *Tokenizer::consumeWhitespaceToken()
     {
+        WhitespaceToken *token = nullptr;
+        std::string spaces;
+        char32_t codepoint;
+        while (codepoint = codepoints[codepoints_index])
+            switch (codepoint)
+            {
+            case 0x9:
+            case 0x20:
+            case 0xA:
+            {
+                if (!token)
+                    token = new WhitespaceToken;
+                spaces += static_cast<char>(codepoint);
+                codepoints_index++;
+            }
+            default:
+                break;
+            }
+        if (token)
+            token->setText(spaces);
+        return token;
     }
 }
